@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <title>TO DO </title>
+
+    <body>
+        <h1>current to do list:</h1> 
+
+
+        <table border="1">
+            <tr>
+            <th>task</th>
+            <th>assigned to (email)</th>
+            <th>priority</th>
+            </tr>
+
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.task }}</td>
+                <td>{{ task.assigned }}</td>
+                <td>{{ task.priority }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+
+        
+        <form action="/clear" method="post">
+            <input type="submit" value="clear"></input>
+        </form>
+
+            <form action="/submit" method="post">
+                <p>Task</p> 
+                <input type="text" name="task"></input>
+                <p>Assigned To</p> 
+                <input type="text" name="assigned to"></input>
+                <p>Prioity</p> 
+                <select name="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <input type="submit" value="submit"></input>
+            </form>
+    </body>
+
+{% endblock content %}
