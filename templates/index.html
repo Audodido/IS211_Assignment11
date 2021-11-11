@@ -1,13 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+
+
     <title>TO DO </title>
 
     <body>
         <h1>current to do list:</h1> 
 
 
-        <table border="1">
+        <table class="center" border="1">
             <tr>
             <th>task</th>
             <th>assigned to (email)</th>
@@ -19,10 +22,18 @@
                 <td>{{ task.task }}</td>
                 <td>{{ task.assigned }}</td>
                 <td>{{ task.priority }}</td>
-                {% endfor %}
+                <!-- <td><form action="/delete" method="post">
+                    <input type="submit" value="delete"></input>
+                    </form> -->
+                </td>
             </tr>
+            {% endfor %}
         </table>
 
+        
+        <form action="/save" method="post">
+            <input type="submit" value="save"></input>
+        </form>
         
         <form action="/clear" method="post">
             <input type="submit" value="clear"></input>
@@ -33,7 +44,7 @@
                 <input type="text" name="task"></input>
                 <p>Assigned To</p> 
                 <input type="text" name="assigned to"></input>
-                <p>Prioity</p> 
+                <p>Priority</p> 
                 <select name="priority">
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
