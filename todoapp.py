@@ -51,8 +51,6 @@ def submit():
                 'task' : new_task,
                 'assigned' : new_assigned,
                 'priority' : new_priority})
-            # return tasks[len(tasks)-1]
-            # return render_template('post.html')
             return redirect('/')
         else:
             error = 'priority'
