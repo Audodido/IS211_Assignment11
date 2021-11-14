@@ -1,6 +1,5 @@
 from os import error
-from flask import Flask, render_template, request, url_for
-from werkzeug.utils import redirect
+from flask import Flask, render_template, request, url_for, redirect
 from os.path import exists
 import re
 
@@ -76,4 +75,4 @@ if __name__ == '__main__':
                         'priority' : entry[2]})
                 
 
-        app.run(debug=True)
+        app.run(debug=False)
